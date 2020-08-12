@@ -5,7 +5,7 @@ const {
   db: { username, password, host, port, name },
 } = config;
 
-const url =
+export const url =
   `mongodb://${username}:${password}@${host}:${port}/${name}?authSource=admin` ||
   config.db.database_url;
 
