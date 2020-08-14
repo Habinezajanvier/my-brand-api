@@ -8,7 +8,7 @@ describe('/signup', () => {
   beforeAll(async () => {
     await mongoose.connect(url, {
       useNewUrlParser: true,
-      useUnifiedTopology: true,
+      useUnifiedTopology: true
     });
   });
   afterEach(async () => {
@@ -18,7 +18,7 @@ describe('/signup', () => {
     const user = {
       fullNames: 'fullname',
       email: 'email@example.com',
-      password: 'password',
+      password: 'password'
     };
     const newUser = new User(user);
     await newUser.save();
@@ -32,7 +32,7 @@ describe('/signup', () => {
     const user = {
       fullNames: 'fullname',
       email: 'email@example.com',
-      password: 'password',
+      password: 'password'
     };
     const res = await request(app).post('/user/signup').send(user);
     expect(res.status).toBe(201);
