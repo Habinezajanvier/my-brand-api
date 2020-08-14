@@ -1,0 +1,51 @@
+{
+  "name": "my-brand-api",
+  "version": "1.0.0",
+  "description": "my-brand is website of my own portfolio with simple blog to post some articles",
+  "main": "index.js",
+  "jest": {
+    "verbose": true,
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ]
+  },
+  "scripts": {
+    "test": "jest --coverage --forceExit",
+    "coveralls": "cat ./coverage/lcov.info | coveralls",
+    "test:watch": "jest --coverage --watch",
+    "dev": "nodemon --exec babel-node src/index.js",
+    "build": ".\\node_modules\\.bin\\babel src --out-dir dist",
+    "start": "node dist/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Habinezajanvier/my-brand-api.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Habinezajanvier/my-brand-api/issues"
+  },
+  "homepage": "https://github.com/Habinezajanvier/my-brand-api#readme",
+  "dependencies": {
+    "@babel/runtime": "^7.11.2",
+    "@hapi/joi": "^17.1.1",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.28",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.11.1",
+    "@babel/node": "^7.10.5",
+    "@babel/plugin-transform-runtime": "^7.11.0",
+    "@babel/preset-env": "^7.11.0",
+    "coveralls": "^3.1.0",
+    "dotenv": "^8.2.0",
+    "jest": "^26.4.0",
+    "nodemon": "^2.0.4",
+    "supertest": "^4.0.2"
+  }
+}
