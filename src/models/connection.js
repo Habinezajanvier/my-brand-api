@@ -2,11 +2,11 @@ import mongoose from 'mongoose';
 import config from '../../config/config';
 
 const {
-  db: { username, password, host, port, name },
+  db: { host, port, name },
 } = config;
 
 export const url =
-  `mongodb://${username}:${password}@${host}:${port}/${name}?authSource=admin` ||
+  `mongodb://${host}:${port}/${name}?authSource=admin` ||
   config.db.database_url;
 
 const options = {

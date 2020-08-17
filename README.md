@@ -1,6 +1,4 @@
-[![Build Status](https://travis-ci.com/Habinezajanvier/my-brand-api.svg?branch=develop)](https://travis-ci.com/Habinezajanvier/my-brand-api)
-
-[![Coverage Status](https://coveralls.io/repos/github/Habinezajanvier/my-brand-api/badge.svg?branch=develop)](https://coveralls.io/github/Habinezajanvier/my-brand-api?branch=develop)
+[![Build Status](https://travis-ci.com/Habinezajanvier/my-brand-api.svg?branch=develop)](https://travis-ci.com/Habinezajanvier/my-brand-api)[![Coverage Status](https://coveralls.io/repos/github/Habinezajanvier/my-brand-api/badge.svg?branch=develop)](https://coveralls.io/github/Habinezajanvier/my-brand-api?branch=develop)
 
 # my-brand-api
 
