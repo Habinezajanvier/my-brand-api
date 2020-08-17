@@ -18,7 +18,7 @@ describe('/signup', () => {
     const user = {
       fullNames: 'fullname',
       email: 'email@example.com',
-      password: 'password'
+      password: 'password123'
     };
     const newUser = new User(user);
     await newUser.save();
@@ -32,7 +32,7 @@ describe('/signup', () => {
     const user = {
       fullNames: 'fullname',
       email: 'email@example.com',
-      password: 'password'
+      password: 'password123'
     };
     const res = await request(app).post('/user/signup').send(user);
     expect(res.status).toBe(201);

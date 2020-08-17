@@ -10,17 +10,20 @@ export const signupValidation = (req, res, next) => {
         'string.empty': 'Your names are required',
         'string.pattern.base': 'Names should be valid names'
       }),
-    email: Joi.string().email().required().trim().lowercase().messages({
-      'string.email': 'Email must be a vaild email',
-      'string.lowercase': 'Email should be in lowercase',
-      'string.empty': 'Email is required'
-    }),
+    email: Joi.string().email().required().trim()
+      .lowercase()
+      .messages({
+        'string.email': 'Email must be a valid email',
+        'string.lowercase': 'Email should be in lowercase',
+        'string.empty': 'Email is required'
+      }),
     password: Joi.string()
       .required()
       .regex(/^[a-z]{4,}\d+/i)
       .messages({
         'string.empty': 'Password is required',
-        'string.pattern.base': 'Password must be four letter long plus digits'
+        'string.pattern.base':
+          'Password must be four letter long plus digit numbers'
       })
   });
 
@@ -32,17 +35,20 @@ export const signupValidation = (req, res, next) => {
 
 export const loginValidation = (req, res, next) => {
   const schema = Joi.object({
-    email: Joi.string().email().required().trim().lowercase().messages({
-      'string.email': 'Email must be a vaild email',
-      'string.lowercase': 'Email should be in lowercase',
-      'string.empty': 'Email is required'
-    }),
+    email: Joi.string().email().required().trim()
+      .lowercase()
+      .messages({
+        'string.email': 'Email must be a valid email',
+        'string.lowercase': 'Email should be in lowercase',
+        'string.empty': 'Email is required'
+      }),
     password: Joi.string()
       .required()
       .regex(/^[a-z]{4,}\d+/i)
       .messages({
         'string.empty': 'Password is required',
-        'string.pattern.base': 'Password must be four letter long plus digits'
+        'string.pattern.base':
+          'Password must be four letter long plus digit numbers'
       })
   });
 

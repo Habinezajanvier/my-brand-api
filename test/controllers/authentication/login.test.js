@@ -13,7 +13,7 @@ describe('/Login', () => {
     });
   });
   beforeEach(async () => {
-    const password = await hashPassword('password');
+    const password = await hashPassword('password123');
     const user = {
       fullNames: 'fullname',
       email: 'email@example.com',
@@ -28,7 +28,7 @@ describe('/Login', () => {
   it('Should return 404 if no account found', async (done) => {
     const user = {
       email: 'otherEmail@example.com',
-      password: 'password'
+      password: 'password123'
     };
     const res = await request(app).post('/user/login').send(user);
     expect(res.status).toBe(404);
@@ -38,7 +38,7 @@ describe('/Login', () => {
   it('Should return 400 if password is invalid', async (done) => {
     const user = {
       email: 'email@example.com',
-      password: 'wrongPassword'
+      password: 'wrongPassword321'
     };
     const res = await request(app).post('/user/login').send(user);
     expect(res.status).toBe(400);
@@ -49,7 +49,7 @@ describe('/Login', () => {
   it('Should return 200 if successeffully loged in', async (done) => {
     const cred = {
       email: 'email@example.com',
-      password: 'password'
+      password: 'password123'
     };
     const res = await request(app).post('/user/login').send(cred);
     expect(res.status).toBe(200);
