@@ -4,8 +4,9 @@ import createToken from '../../helpers/generateToken';
 
 export default async (req, res) => {
   const { email, password } = req.body;
+  const emailToSearch = email.trim().toLowerCase();
 
-  const account = await User.findOne({ email });
+  const account = await User.findOne({ email: emailToSearch });
   if (!account) {
     return res.status(404).send({ msg: 'Invalid email or password' });
   }
@@ -21,8 +22,8 @@ export default async (req, res) => {
     user: {
       _id: account._id,
       fullNames: account.fullNames,
-      email: account.email,
+      email: account.email
     },
-    token,
+    token
   });
 };
