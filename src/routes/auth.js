@@ -1,9 +1,9 @@
 import { Router } from 'express';
 import asyncHandler from '../middlewares/asyncHandlers';
-import SignupController from '../controllers/authentication/';
+import SignupController from '../controllers/authentication';
 import {
   signupValidation,
-  loginValidation,
+  loginValidation
 } from '../middlewares/userValidation';
 
 const userRoute = new Router();
