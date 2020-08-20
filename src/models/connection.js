@@ -8,8 +8,9 @@ const {
   db: { host, port, name }
 } = config;
 
-export const url = `mongodb://${host}:${port}/${name}?authSource=admin`
-  || config.db.database_url;
+export const url =
+  config.db.database_url ||
+  `mongodb://${host}:${port}/${name}?authSource=admin`;
 
 const options = {
   useNewUrlParser: true,
