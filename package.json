@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "my-brand is website of my own portfolio with simple blog to post some articles",
   "main": "index.js",
+  "engines": {
+    "node": "12.13.1"
+  },
   "jest": {
     "verbose": true,
     "testEnvironment": "node",
@@ -33,6 +36,7 @@
     "@babel/runtime": "^7.11.2",
     "@hapi/joi": "^17.1.1",
     "bcryptjs": "^2.4.3",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.9.28",
@@ -45,7 +49,6 @@
     "@babel/plugin-transform-runtime": "^7.11.0",
     "@babel/preset-env": "^7.11.0",
     "coveralls": "^3.1.0",
-    "dotenv": "^8.2.0",
     "eslint": "^7.7.0",
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-plugin-import": "^2.22.0",
