@@ -3,25 +3,24 @@ import mongoose, { Schema } from 'mongoose';
 const User = new Schema({
   fullNames: {
     type: String,
-    required: true,
+    required: true
   },
   email: {
     type: String,
-    required: true,
-    unique: true,
+    required: true
   },
   password: {
     type: String,
-    required: true,
+    required: true
   },
   isAdmin: {
     type: Boolean,
-    default: false,
+    default: false
   },
   date: {
     type: Date,
-    default: Date.now,
-  },
+    default: Date.now
+  }
 });
 
 const userSchema = mongoose.model('User', User);
