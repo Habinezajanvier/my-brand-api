@@ -9,6 +9,7 @@ const User = new Schema({
     type: String,
     required: true
   },
+  photoUrl: String,
   password: {
     type: String,
     required: true
