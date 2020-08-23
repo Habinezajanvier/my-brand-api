@@ -1,6 +1,11 @@
 import mongoose, { Schema } from 'mongoose';
 
 const User = new Schema({
+  platform: {
+    type: String,
+    enum: ['google', 'email']
+  },
+  profileId: String,
   fullNames: {
     type: String,
     required: true
@@ -13,7 +18,7 @@ const User = new Schema({
   photoUrl: String,
   password: {
     type: String,
-    required: true
+    required() { return this.platform === 'email'; }
   },
   isAdmin: {
     type: Boolean,

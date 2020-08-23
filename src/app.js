@@ -5,6 +5,7 @@ import userRoute from './routes/auth';
 import messageRoute from './routes/message';
 import articleRoute from './routes/article';
 import profileRouter from './routes/profile';
+import googleAuth from './routes/googleAuth';
 
 const app = express();
 app.use(express.json());
@@ -16,7 +17,8 @@ dbConnections();
 /**
  * Routes configurations
  */
-app.use('/user', userRoute);
+app.use('/users', userRoute);
+app.use('/users/auth', googleAuth);
 app.use('/messages', messageRoute);
 app.use('/articles', articleRoute);
 app.use('/user/profile', profileRouter);
