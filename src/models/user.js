@@ -7,7 +7,8 @@ const User = new Schema({
   },
   email: {
     type: String,
-    required: true
+    required: true,
+    unique: true
   },
   photoUrl: String,
   password: {
@@ -18,6 +19,7 @@ const User = new Schema({
     type: Boolean,
     default: false
   },
+  bio: String,
   date: {
     type: Date,
     default: Date.now

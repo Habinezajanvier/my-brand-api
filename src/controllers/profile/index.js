@@ -18,5 +18,29 @@ export default {
           photoUrl: user.photoUrl
         }
       });
+  },
+  editProfile: async (req, res) => {
+    const { fullNames, bio } = req.body;
+    const { _id } = req.user;
+    const user = await User.findById({ _id });
+
+    if (!user) return res.status(404).send({ msg: 'No user found' });
+
+    user.set({
+      fullNames: fullNames || user.fullNames,
+      bio
+    });
+    const updatedUser = await user.save();
+    return res
+      .status(200)
+      .send({
+        msg: 'Info successfully updated',
+        user: {
+          fullNames: updatedUser.fullNames,
+          email: updatedUser.email,
+          photoUrl: updatedUser.photoUrl || null,
+          bio: updatedUser.bio
+        }
+      });
   }
 };

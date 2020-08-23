@@ -8,9 +8,8 @@ const {
   db: { host, port, name }
 } = config;
 
-export const url =
-  config.db.database_url ||
-  `mongodb://${host}:${port}/${name}?authSource=admin`;
+export const url = config.db.database_url
+  || `mongodb://${host}:${port}/${name}?authSource=admin`;
 
 const options = {
   useNewUrlParser: true,
@@ -22,13 +21,15 @@ const options = {
 const createAdmin = async () => {
   try {
     const password = await hashPassword(process.env.ADMIN_PASSWORD);
-    const user = new User({
+    const user = {
       fullNames: 'Super Admin',
       email: process.env.ADMIN_EMAIL,
       password,
       isAdmin: true
-    });
-    await user.save();
+    };
+    await User.findOneAndUpdate({ email: process.env.ADMIN_EMAIL },
+      user,
+      { upsert: true, new: true });
     console.log('Db connected and admin created');
   } catch (error) {
     console.log('Something went wrong');

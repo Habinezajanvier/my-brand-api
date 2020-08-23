@@ -57,3 +57,25 @@ export const loginValidation = (req, res, next) => {
 
   return next();
 };
+
+export const updateValidation = (req, res, next) => {
+  const schema = Joi.object({
+    fullNames: Joi.string()
+      .trim()
+      .regex(/^[a-z]{2}([a-z][\W]*)/i)
+      .messages({
+        'string.empty': 'Your names are required',
+        'string.pattern.base': 'Names should be valid names'
+      }),
+    bio: Joi.string().min(24)
+      .messages({
+        'string.base': 'Bio should be a string',
+        'string.min': 'Bio should not be less than 24 characters'
+      })
+  });
+
+  const { error } = schema.validate(req.body);
+  if (error) return res.status(400).json({ error: error.details[0].message });
+
+  return next();
+};
