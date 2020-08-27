@@ -1,5 +1,6 @@
 import express from 'express';
 import morgan from 'morgan';
+import cors from 'cors';
 import dbConnections from './models/connection';
 import userRoute from './routes/auth';
 import messageRoute from './routes/message';
@@ -12,6 +13,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(morgan('dev'));
 app.use('/uploads', express.static('uploads'));
+app.use(cors());
 
 dbConnections();
 /**
@@ -21,7 +23,7 @@ app.use('/users', userRoute);
 app.use('/users/auth', googleAuth);
 app.use('/messages', messageRoute);
 app.use('/articles', articleRoute);
-app.use('/user/profile', profileRouter);
+app.use('/users/profile', profileRouter);
 app.use('/', (req, res) => {
   res.status(200).send({ msg: 'Welcome on my website' });
 });
